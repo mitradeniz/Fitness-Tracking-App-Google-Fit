@@ -7,36 +7,81 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:orientation="vertical" >
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/mainActivityCaloriBarChart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal">
 
-        </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner">
 
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/mainActivityCalBarChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/mainActivityStepBarChart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                </FrameLayout>
 
-        </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner">
 
-    </LinearLayout>
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/mainActivityStepBarChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/mainActivityMinChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner">
+
+
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
