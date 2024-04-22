@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         // Uygulama yüklenmesi için beklenen süre
-        val splashTimeOut: Long = 15000 // 10 saniye
+        val splashTimeOut: Long = 17000 // 10 saniye
 
         // Ana aktiviteye geçiş
         val intent = Intent(this, MainActivity2::class.java)

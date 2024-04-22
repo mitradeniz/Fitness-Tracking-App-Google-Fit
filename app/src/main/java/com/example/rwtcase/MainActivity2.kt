@@ -1,5 +1,6 @@
 package com.example.rwtcase
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -150,6 +151,7 @@ class MainActivity2 : AppCompatActivity() {
         binding.mainActivityStepBarChart.setOnClickListener {
             // liste ile fonksiyonu çağır viewBinding ile sayfayı oluştur
             // tek bir xml iskeleti yeterli olacak
+            startActivity(Intent(this, ChartSpecsActivity::class.java))
 
         }
 

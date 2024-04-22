@@ -8,5 +8,15 @@
     <string name="bottom_nav_menu_egzersiz">Egzersiz</string>
     <string name="bottom_nav_menu_cihaz">Cihaz</string>
     <string name="bottom_nav_menu_profil">Profil</string>
+    <string name="text_label_daily">G</string>
+    <string name="tab_item_text_label_weekly">H</string>
+    <string name="text_label_monthly">A</string>
+    <string name="daily_summary">Günlük Özet</string>
+    <string name="weekly_summary">Haftalık Özet</string>
+    <string name="monthly_summary">Aylık Özet</string>
+    <string name="step_pie_chart">Adım Dilimi</string>
+    <string name="calori_pie_chart">Kalori Dilimi</string>
+    <string name="activity_min_chart">Aktivite Süresi Dilimi</string>
+    <string name="more_info">Daha Fazla Bilgi Edinin</string>
 
 </resources>
