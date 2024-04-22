@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RWT Case</string>
+    <string name="android_permission_activity">-Android Permissions-</string>
+    <string name="recog_permission">Recognation Permission:</string>
+    <string name="fine_location_access_location">Fine Location Access Permission:</string>
+    <string name="body_sensors_perm">Body Sensors Permission:</string>
+
 </resources>

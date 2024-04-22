@@ -9,13 +9,19 @@ android {
 
     defaultConfig {
         applicationId = "com.example.rwtcase"
-        minSdk = 24
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    dataBinding.enable = true
 
     buildTypes {
         release {
@@ -37,11 +43,20 @@ android {
 
 dependencies {
 
+    implementation (libs.androidx.connect.client)
+    implementation (libs.play.services.fitness)
+    implementation(libs.play.services.auth)
+    implementation (libs.androidx.connect.client.v110alpha02)
+    implementation (libs.play.services.auth.v2070)
+
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
