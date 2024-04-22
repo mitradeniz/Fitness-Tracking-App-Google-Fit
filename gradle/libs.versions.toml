@@ -2,6 +2,8 @@
 agp = "8.3.2"
 connectClient = "1.1.0-alpha07"
 connectClientVersion = "1.1.0-alpha02"
+core = "1.1.0-eap1"
+desugar_jdk_libs = "2.0.4"
 kotlin = "1.9.0"
 coreKtx = "1.13.0"
 junit = "4.13.2"
@@ -14,11 +16,14 @@ constraintlayout = "2.1.4"
 playServicesAuth = "20.7.0"
 playServicesFitness = "21.1.0"
 legacySupportV4 = "1.0.0"
+viz = "0.8.12"
 
 [libraries]
 androidx-connect-client = { module = "androidx.health.connect:connect-client", version.ref = "connectClient" }
 androidx-connect-client-v110alpha02 = { module = "androidx.health.connect:connect-client", version.ref = "connectClientVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+core = { module = "io.data2viz.charts:core", version.ref = "core" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -30,6 +35,7 @@ play-services-auth = { module = "com.google.android.gms:play-services-auth", ver
 play-services-auth-v2070 = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 play-services-fitness = { module = "com.google.android.gms:play-services-fitness", version.ref = "playServicesFitness" }
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+viz = { module = "io.data2viz.d2v:viz", version.ref = "viz" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

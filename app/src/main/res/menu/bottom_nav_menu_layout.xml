@@ -4,10 +4,20 @@
         android:id="@+id/page_1"
         android:enabled="true"
         android:icon="@drawable/saglik_icon"
-        android:title="Saglik"/>
+        android:title="@string/bottom_nav_menu_saglik"/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
         android:icon="@drawable/egzersiz_icon"
-        android:title="Egzersiz"/>
+        android:title="@string/bottom_nav_menu_egzersiz"/>
+    <item
+        android:id="@+id/page_3"
+        android:enabled="true"
+        android:icon="@drawable/cihaz_icon"
+        android:title="@string/bottom_nav_menu_cihaz"/>
+    <item
+        android:id="@+id/page_4"
+        android:enabled="true"
+        android:icon="@drawable/profil_icon"
+        android:title="@string/bottom_nav_menu_profil"/>
 </menu>

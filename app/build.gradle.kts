@@ -39,7 +39,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
+
+
 
 dependencies {
 
@@ -49,7 +52,11 @@ dependencies {
     implementation (libs.androidx.connect.client.v110alpha02)
     implementation (libs.play.services.auth.v2070)
 
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    //implementation (libs.core)
+    //implementation (libs.viz)
 
+    coreLibraryDesugaring (libs.desugar.jdk.libs)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

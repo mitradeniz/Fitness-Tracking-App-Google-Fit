@@ -10,9 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.health.platform.client.proto.DataProto
 import com.example.rwtcase.databinding.ActivityMainBinding
 import com.example.rwtcase.databinding.ActivityPermissionsBinding
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
@@ -25,6 +28,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
+internal lateinit var a: List<FitnessData>
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -34,6 +38,14 @@ class MainActivity : AppCompatActivity() {
     private val REQUEST_CODE_ACCESS_FINE_LOCATION = 102
     private val REQUEST_CODE_BODY_SENSORS = 103
     private val GOOGLE_FIT_PERMISSIONS_REQUEST_CODE = 1111
+
+    private lateinit var barChart: BarChart
+    private lateinit var barData: BarData
+    private lateinit var barDataSet: BarDataSet
+    private lateinit var barEntryList: ArrayList<BarEntry>
+
+
+
 
     private val fitnessOptions = FitnessOptions.builder()
         .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
@@ -45,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         bindingPermissionsBinding = ActivityPermissionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /*
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
@@ -57,9 +70,23 @@ class MainActivity : AppCompatActivity() {
                     // Respond to navigation item 2 click
                     true
                 }
+                R.id.page_3 -> {
+                    // Respond to navigation item 2 click
+                    true
+                }
+                R.id.page_4 -> {
+                    // Respond to navigation item 2 click
+                    true
+                }
                 else -> false
             }
         }
+         */
+
+        binding.mainActivityTo2Button.setOnClickListener {
+            startActivity(Intent(this, MainActivity2::class.java))
+        }
+
 
         val permissionLoc = Manifest.permission.ACCESS_FINE_LOCATION // İzin türüne göre değiştirin
         val permissionRec = Manifest.permission.ACTIVITY_RECOGNITION
@@ -88,6 +115,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             accessGoogleFit()
         }
+
+
     }
 
     private fun requestPermissions(permission: String, requestCode: Int) {
@@ -100,10 +129,12 @@ class MainActivity : AppCompatActivity() {
         val endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond()
         val startSeconds = start.atZone(ZoneId.systemDefault()).toEpochSecond()
 
+
+        // .aggregate(DataType.TYPE_ACTIVITY_SEGMENT)
         val readRequest = DataReadRequest.Builder()
             .aggregate(DataType.AGGREGATE_STEP_COUNT_DELTA)
             .aggregate(DataType.AGGREGATE_CALORIES_EXPENDED)
-            .aggregate(DataType.TYPE_ACTIVITY_SEGMENT)
+            .aggregate(DataType.TYPE_MOVE_MINUTES)
             .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
             .bucketByTime(1, TimeUnit.DAYS)
             .build()
@@ -114,26 +145,67 @@ class MainActivity : AppCompatActivity() {
             .readData(readRequest)
             .addOnSuccessListener { response ->
                 for (dataSet in response.buckets.flatMap { it.dataSets }) {
-                    dumpDataSet(dataSet)
+                    a = dumpDataSet(dataSet)
+
+                    for (i in a) {
+                        /*
+                        var count = 0
+                        if (i.type == "com.google.step_count.delta") {
+
+                            barEntryList.add(BarEntry(count.toFloat(), i.value.toFloat()))
+                            count += 1
+                        }
+
+                         */
+                        Log.e("1", i.startTime.toString())
+                        Log.e("2", i.endTime.toString())
+                        Log.e("3", i.type.toString())
+                        Log.e("4", i.value.toString())
+
+                    }
+                    /*
+                    barDataSet = BarDataSet(barEntryList, "Adım:")
+                    barData = BarData(barDataSet)
+                    barChart = findViewById(R.id.mainActivityStepBarChart)
+                    barChart.data = barData
+                    barDataSet.color = Color.BLUE
+                    barDataSet.valueTextColor = Color.BLACK
+                    barDataSet.valueTextSize = 4f
+                    barChart.description.isEnabled = false
+
+                     */
+
                 }
             }
             .addOnFailureListener { e ->
                 Log.e("TAG", "There was an error reading data from Google Fit", e)
             }
+
     }
 
-    private fun dumpDataSet(dataSet: DataSet) {
-        Log.i("TAG", "Data returned for Data type: ${dataSet.dataType.name}")
+    private fun dumpDataSet(dataSet: DataSet): MutableList<FitnessData> {
+        val fitnessDataList = mutableListOf<FitnessData>()
+
+        //Log.i("TAG", "Data returned for Data type: ${dataSet.dataType.name}")
         for (dp in dataSet.dataPoints) {
-            Log.e("TAG","Data point:")
-            Log.e("TAG","\tType: ${dp.dataType.name}")
-            Log.e("TAG","\tStart: ${dp.getStartTimeString()}")
-            Log.e("TAG","\tEnd: ${dp.getEndTimeString()}")
-            for (field in dp.dataType.fields) {
-                Log.e("TAG","\tField: ${field.name} Value: ${dp.getValue(field)}")
-            }
+            //Log.e("TAG","Data point:")
+            //Log.e("TAG","\tType: ${dp.dataType.name}")
+
+            val startTime = Instant.ofEpochSecond(dp.getStartTime(TimeUnit.SECONDS))
+                .atZone(ZoneId.systemDefault()).toLocalDateTime()
+            val endTime = Instant.ofEpochSecond(dp.getEndTime(TimeUnit.SECONDS))
+                .atZone(ZoneId.systemDefault()).toLocalDateTime()
+
+            //Log.e("TAG","\tStart: ${startTime}")
+            //Log.e("TAG","\tEnd: ${endTime}")
+
+            val value = dp.getValue(dp.dataType.fields[0]).toString() // Assume value is string
+            fitnessDataList.add(FitnessData(dp.dataType.name, startTime, endTime, value))
         }
+
+        return fitnessDataList
     }
+
 
     private fun DataPoint.getStartTimeString() =
         Instant.ofEpochSecond(this.getStartTime(TimeUnit.SECONDS))

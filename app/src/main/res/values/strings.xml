@@ -4,5 +4,9 @@
     <string name="recog_permission">Recognation Permission:</string>
     <string name="fine_location_access_location">Fine Location Access Permission:</string>
     <string name="body_sensors_perm">Body Sensors Permission:</string>
+    <string name="bottom_nav_menu_saglik">Sağlık</string>
+    <string name="bottom_nav_menu_egzersiz">Egzersiz</string>
+    <string name="bottom_nav_menu_cihaz">Cihaz</string>
+    <string name="bottom_nav_menu_profil">Profil</string>
 
 </resources>
