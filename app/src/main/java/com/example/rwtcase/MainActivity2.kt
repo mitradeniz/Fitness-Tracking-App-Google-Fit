@@ -15,16 +15,18 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import java.time.LocalDateTime
 
+
+internal lateinit var barChart: BarChart
+internal lateinit var barData: BarData
+internal lateinit var barDataSet: BarDataSet
+internal lateinit var barEntryListStep: ArrayList<BarEntry>
+internal lateinit var barEntryListCal: ArrayList<BarEntry>
+internal lateinit var barEntryListMin: ArrayList<BarEntry>
 class MainActivity2 : AppCompatActivity() {
 
     private lateinit var binding: ActivityMain2Binding
 
-    private lateinit var barChart: BarChart
-    private lateinit var barData: BarData
-    private lateinit var barDataSet: BarDataSet
-    private lateinit var barEntryListStep: ArrayList<BarEntry>
-    private lateinit var barEntryListCal: ArrayList<BarEntry>
-    private lateinit var barEntryListMin: ArrayList<BarEntry>
+
 
 
     private lateinit var stepCountList: MutableList<Pair<Float, Float>>
@@ -149,18 +151,25 @@ class MainActivity2 : AppCompatActivity() {
         barChart.description.isEnabled = false
 
         binding.mainActivityStepBarChart.setOnClickListener {
+
             // liste ile fonksiyonu çağır viewBinding ile sayfayı oluştur
             // tek bir xml iskeleti yeterli olacak
-            startActivity(Intent(this, ChartSpecsActivity::class.java))
+            val intent = Intent(this, ChartSpecsActivity::class.java)
+            intent.putExtra("dataKey", "1")
+            startActivity(intent)
 
         }
 
         binding.mainActivityCalBarChart.setOnClickListener {
-
+            val intent = Intent(this, ChartSpecsActivity::class.java)
+            intent.putExtra("dataKey", "2")
+            startActivity(intent)
         }
 
         binding.mainActivityMinChart.setOnClickListener {
-
+            val intent = Intent(this, ChartSpecsActivity::class.java)
+            intent.putExtra("dataKey", "3")
+            startActivity(intent)
         }
 
 

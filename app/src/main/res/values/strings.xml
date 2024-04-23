@@ -18,5 +18,7 @@
     <string name="calori_pie_chart">Kalori Dilimi</string>
     <string name="activity_min_chart">Aktivite Süresi Dilimi</string>
     <string name="more_info">Daha Fazla Bilgi Edinin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

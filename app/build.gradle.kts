@@ -56,6 +56,8 @@ dependencies {
     //implementation (libs.core)
     //implementation (libs.viz)
 
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
+
     coreLibraryDesugaring (libs.desugar.jdk.libs)
 
     implementation(libs.androidx.core.ktx)
