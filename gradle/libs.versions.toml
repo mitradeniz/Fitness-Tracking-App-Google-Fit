@@ -1,5 +1,6 @@
 [versions]
 agp = "8.3.2"
+androidGifDrawable = "1.2.23"
 connectClient = "1.1.0-alpha07"
 connectClientVersion = "1.1.0-alpha02"
 core = "1.1.0-eap1"
@@ -13,12 +14,14 @@ appcompat = "1.6.1"
 material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+mpandroidchart = "v3.1.0"
 playServicesAuth = "20.7.0"
 playServicesFitness = "21.1.0"
 legacySupportV4 = "1.0.0"
 viz = "0.8.12"
 
 [libraries]
+android-gif-drawable = { module = "pl.droidsonroids.gif:android-gif-drawable", version.ref = "androidGifDrawable" }
 androidx-connect-client = { module = "androidx.health.connect:connect-client", version.ref = "connectClient" }
 androidx-connect-client-v110alpha02 = { module = "androidx.health.connect:connect-client", version.ref = "connectClientVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +34,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesFitness" }
 play-services-auth-v2070 = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 play-services-fitness = { module = "com.google.android.gms:play-services-fitness", version.ref = "playServicesFitness" }

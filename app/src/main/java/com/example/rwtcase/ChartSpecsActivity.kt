@@ -32,6 +32,7 @@ class ChartSpecsActivity : AppCompatActivity() {
 
         when (receivedData) {
             "1" -> {
+                binding.chartSpecActivitySummaryTextView.text = "Adım:"
                 barDataSet = BarDataSet(barEntryListStep, "Adım:")
                 barData = BarData(barDataSet)
                 barChart = findViewById(R.id.chartSpecActivityBarChart)
@@ -42,6 +43,7 @@ class ChartSpecsActivity : AppCompatActivity() {
                 barChart.description.isEnabled = false
             }
             "2" -> {
+                binding.chartSpecActivitySummaryTextView.text = "Kalori:"
                 barDataSet = BarDataSet(barEntryListCal, "Kalori:")
                 barData = BarData(barDataSet)
                 barChart = findViewById(R.id.chartSpecActivityBarChart)
@@ -52,6 +54,7 @@ class ChartSpecsActivity : AppCompatActivity() {
                 barChart.description.isEnabled = false
             }
             "3" -> {
+                binding.chartSpecActivitySummaryTextView.text = "Hareket Süresi:"
                 barDataSet = BarDataSet(barEntryListMin, "Hareket S.:")
                 barData = BarData(barDataSet)
                 barChart = findViewById(R.id.chartSpecActivityBarChart)
