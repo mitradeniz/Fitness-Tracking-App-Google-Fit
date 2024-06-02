@@ -122,29 +122,17 @@ class MainActivity : AppCompatActivity() {
                         Log.e("4", i.value.toString())
                     }
                 }
+                val intent = Intent(this, MainActivity2::class.java)
+
+                startActivity(intent)
+                finish()
             }
             .addOnFailureListener { e ->
                 Log.e("TAG", "There was an error reading data from Google Fit", e)
             }
 
-        // Uygulama yüklenmesi için beklenen süre
-        val splashTimeOut: Long = 17000 // 10 saniye
-
         // Ana aktiviteye geçiş
-        val intent = Intent(this, MainActivity2::class.java)
-        // Splash ekranı tamamlanınca ana aktiviteye geç
-        Thread(Runnable {
-            kotlin.run {
-                try {
-                    Thread.sleep(splashTimeOut)
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                } finally {
-                    startActivity(intent)
-                    finish()
-                }
-            }
-        }).start()
+
 
     }
 
