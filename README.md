@@ -68,7 +68,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For questions or suggestions, please open an issue in the repository or contact [your-email@example.com](mailto:mitradenzikaratas@gmail.com).
+For questions or suggestions, please open an issue in the repository or contact [mitradenizkaratas@gmail.com](mailto:mitradenzikaratas@gmail.com).
 
 ---
 
