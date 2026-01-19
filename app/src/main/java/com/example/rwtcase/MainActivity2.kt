@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.health.connect.client.HealthConnectClient
 import com.example.rwtcase.databinding.ActivityMain2Binding
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData

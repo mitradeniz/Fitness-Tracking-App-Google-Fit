@@ -52,6 +52,7 @@ dependencies {
     implementation (libs.androidx.connect.client.v110alpha02)
     implementation (libs.play.services.auth.v2070)
 
+
     implementation (libs.mpandroidchart)
     //implementation (libs.core)
     //implementation (libs.viz)

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.health.connect.client.HealthConnectClient
 import com.example.rwtcase.databinding.ActivityMainBinding
 import com.example.rwtcase.databinding.ActivityPermissionsBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
